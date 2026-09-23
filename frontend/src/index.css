@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-obsidian-950 text-slate-100 font-sans antialiased min-h-screen selection:bg-purple-500/30 selection:text-purple-200 overflow-x-hidden;
+  }
+}
+
+/* Custom developer observability scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090a0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #20253d;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}
+
+/* Glassmorphic cards with enhanced backdrop blur */
+.glass-panel {
+  background: rgba(17, 20, 32, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-panel-hover:hover {
+  background: rgba(22, 25, 41, 0.85);
+  border-color: rgba(139, 92, 246, 0.35);
+  box-shadow: 0 8px 30px -8px rgba(139, 92, 246, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Ambient Aurora Glow Backdrop */
+.aurora-glow {
+  position: absolute;
+  top: -15%;
+  left: 30%;
+  width: 50rem;
+  height: 30rem;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, rgba(99, 102, 241, 0.06) 40%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.aurora-glow-secondary {
+  position: absolute;
+  bottom: 10%;
+  right: 15%;
+  width: 40rem;
+  height: 25rem;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, rgba(16, 185, 129, 0.04) 50%, transparent 75%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Subtle developer grid pattern */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Pulsing radar dot for live runner */
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 0.3; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.pulse-radar {
+  animation: pulse-ring 2s infinite ease-in-out;
+}
+
+/* Smooth fade and pop in */
+@keyframes pop-in {
+  0% { opacity: 0; transform: scale(0.96); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-pop-in {
+  animation: pop-in 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
